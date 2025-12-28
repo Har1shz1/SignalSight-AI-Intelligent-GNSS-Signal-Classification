@@ -1,6 +1,6 @@
 """
 Constants for GNSS Signal Processing
-Used for L5 frequency band calculations and physical constants
+Used for L5 frequency band calculations and physical constants 
 """
 
 # Physical Constants
@@ -17,3 +17,4 @@ THRESHOLDS = {
 
 # Label Mapping
 LABEL_MAP = {0: 'LOS', 1: 'MULTIPATH', 2: 'NLOS'}
+
