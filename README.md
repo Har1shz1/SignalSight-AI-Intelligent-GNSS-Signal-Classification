@@ -1,4 +1,5 @@
 # 🛰️ GNSS Signal Classification using Machine Learning (LOS / NLOS / Multipath)
+<img width="753" height="510" alt="1" src="https://github.com/user-attachments/assets/522c7d49-76e3-4c40-a400-757d547c3c76" />
 
 ## 🔬 Research Problem & Motivation
 
@@ -20,6 +21,7 @@ This classification enables **intelligent error correction**, improving position
 Traditional GNSS receivers cannot reliably distinguish LOS, multipath, and NLOS signals using conventional threshold-based algorithms alone.
 
 ### Innovative Methodology
+<img width="745" height="490" alt="2" src="https://github.com/user-attachments/assets/de401741-1e5b-44e8-b341-1291f419ebff" />
 
 ```python
 # Step 1: Feature Engineering from GNSS Physics
@@ -43,6 +45,7 @@ elif prediction == "Multipath":
 ---
 
 ## 📊 Performance Highlights
+<img width="764" height="521" alt="3" src="https://github.com/user-attachments/assets/8144317e-67d4-4694-971c-206cdca28202" />
 
 | Model | Accuracy | F1-Score | Precision | Recall | Inference Time (ms) |
 |------|---------|----------|-----------|--------|--------------------|
@@ -56,6 +59,7 @@ elif prediction == "Multipath":
 ---
 
 ## 🚀 Key Achievements
+<img width="768" height="514" alt="4" src="https://github.com/user-attachments/assets/e0b7b0c1-b025-4b49-baf6-721b377740fa" />
 
 - ✅ **95.2% accuracy** on urban GNSS datasets  
 - ✅ **15% improvement** over baseline positioning methods  
