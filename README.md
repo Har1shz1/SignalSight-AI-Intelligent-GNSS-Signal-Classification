@@ -221,18 +221,3 @@ predictions = classifier.predict_with_uncertainty(
     X_test, n_iterations=100, confidence_level=0.95
 )
 ```
-
----
-
-## 🎓 Academic & MS-CS Relevance
-
-This project demonstrates:
-- Physics-aware ML design
-- Robust handling of noisy real-world data
-- Reproducible ML pipelines
-- Real-time inference considerations
-- System-level thinking in applied ML
-
----
-
-⭐ **If you find this project useful, consider starring the repository!**
