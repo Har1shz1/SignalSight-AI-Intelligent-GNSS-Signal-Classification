@@ -127,15 +127,3 @@ python src/pipeline.py
 ```
 
 ---
-
-## 🎓 MS CS Relevance
-
-This project demonstrates:
-- Physics-aware machine learning
-- Signal processing foundations
-- System-level ML pipeline design
-- Real-time inference considerations
-
----
-
-⭐ **Star the repository if you find this project useful!**
