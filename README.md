@@ -155,6 +155,33 @@ df['ionospheric_error_estimate'] = df['carrier_delay_m'] * df['elevation_cos']
 - **Calibration:** Temperature scaling for probability estimates
 
 ---
+## 📁 Project Structure
+
+```
+gnss-ml-classification/
+├── data/
+│   ├── raw/
+│   ├── processed/
+│   └── splits/
+├── Code/
+│   ├── feature_engineering.py
+│   ├── labeling.py
+│   ├── models/
+│   │   ├── ensemble.py
+│   │   ├── neural.py
+│   │   └── traditional.py
+│   ├── evaluation.py
+│   └── pipeline.py
+├── notebooks/
+├── results/
+│   ├── models/
+│   ├── plots/
+│   └── reports/
+└── tests/
+```
+
+---
+
 
 ## 🚀 Quick Start
 
