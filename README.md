@@ -254,18 +254,23 @@ predictions = classifier.predict_with_uncertainty(
 ---
 
 ## 📥 Sample GNSS Input
-![Input](assets/input_preview.png)
+<img width="1589" height="502" alt="input_preview" src="https://github.com/user-attachments/assets/6e39e6bb-bde8-4cb6-9b99-345c96df6659" />
 
-## ⚙️ Feature Engineering
-![Features](assets/feature_engineering_output.png)
+
+## ⚙️ Feature Engineering Output
+<img width="1589" height="502" alt="feature_engineering_output" src="https://github.com/user-attachments/assets/4b8c7231-1688-4db0-82bc-75dedc72df3d" />
+
 
 ## 🏷️ Signal Class Distribution
-![Labels](assets/label_distribution.png)
+<img width="1126" height="972" alt="label_distribution" src="https://github.com/user-attachments/assets/048ca608-1859-4902-b843-6ccbe32fa336" />
+
 
 ## 📊 Model Evaluation
-![Confusion Matrix](assets/confusion_matrix_model.png)
+<img width="1110" height="908" alt="confusion_matrix_model" src="https://github.com/user-attachments/assets/c783c05c-4f65-4905-9fbb-71dc897cb286" />
+
 
 ## 🔍 Feature Importance
-![Importance](assets/feature_importance.png)
+<img width="1328" height="908" alt="feature_importance" src="https://github.com/user-attachments/assets/ccdd0818-11c8-43b1-a07e-ec6b7e243e66" />
+
 
 ---
