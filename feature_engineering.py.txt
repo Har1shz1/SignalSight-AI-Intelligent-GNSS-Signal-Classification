@@ -1,0 +1,83 @@
+"""
+Feature Engineering Module
+Transforms raw GNSS measurements into ML-ready features
+"""
+
+import numpy as np
+import pandas as pd
+from constants import L5_WAVELENGTH
+
+class GNSSFeatureEngineer:
+    """Feature engineering pipeline for GNSS signal classification"""
+    
+    def __init__(self):
+        self.feature_names = []
+        
+    def extract_basic_features(self, df, carrier_col, clock_col, pr_col, elevation_col):
+        """
+        Extract basic GNSS features
+        
+        Args:
+            df: Input DataFrame
+            carrier_col: Carrier phase column
+            clock_col: Clock bias column
+            pr_col: Pseudorange column
+            elevation_col: Elevation angle column
+            
+        Returns:
+            DataFrame with engineered features
+        """
+        df = df.copy()
+        
+        # Signal propagation features
+        df['carrier_delay_m'] = df[carrier_col] * L5_WAVELENGTH
+        df['corrected_carrier'] = df['carrier_delay_m'] - df[clock_col]
+        df['code_carrier_div'] = df[pr_col] - df['corrected_carrier']
+        df['code_carrier_ratio'] = df[pr_col] / df['corrected_carrier'].replace(0, np.finfo(float).eps)
+        
+        # Elevation-based features
+        df['elevation_rad'] = np.radians(df[elevation_col])
+        df['elevation_norm'] = df[elevation_col] / 90.0
+        df['elevation_sin'] = np.sin(df['elevation_rad'])
+        df['elevation_cos'] = np.cos(df['elevation_rad'])
+        
+        # Signal quality indicators
+        df['signal_to_noise'] = 10 * np.log10(df.get('C/N0', 45))  # Default if missing
+        df['multipath_indicator'] = df['code_carrier_div'] * df['elevation_sin']
+        
+        # Statistical features (window-based)
+        window_size = 5
+        df['code_carrier_mean'] = df['code_carrier_div'].rolling(window=window_size, center=True).mean()
+        df['code_carrier_std'] = df['code_carrier_div'].rolling(window=window_size, center=True).std()
+        
+        # Rate of change features
+        df['code_carrier_diff'] = df['code_carrier_div'].diff()
+        df['elevation_diff'] = df[elevation_col].diff()
+        
+        self.feature_names = [col for col in df.columns if col not in [carrier_col, clock_col, pr_col, elevation_col]]
+        
+        return df
+    
+    def extract_advanced_features(self, df):
+        """Extract advanced physics-based features"""
+        df = df.copy()
+        
+        # Multipath geometry features
+        df['multipath_delay_metric'] = df['code_carrier_div'] * (1 - df['elevation_sin'])
+        
+        # Signal strength indicators
+        if 'C/N0' in df.columns:
+            df['signal_strength_class'] = pd.cut(df['C/N0'], 
+                                                 bins=[0, 30, 40, 50, 100], 
+                                                 labels=[0, 1, 2, 3])
+        
+        # Time-based features
+        if 'Time' in df.columns:
+            df['time_sin'] = np.sin(2 * np.pi * df['Time'] / 86400)  # Daily pattern
+            df['time_cos'] = np.cos(2 * np.pi * df['Time'] / 86400)
+        
+        return df
+    
+    def get_feature_list(self):
+        """Return list of engineered features"""
+        return self.feature_names
