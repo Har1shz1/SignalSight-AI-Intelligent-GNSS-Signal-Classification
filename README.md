@@ -252,3 +252,20 @@ predictions = classifier.predict_with_uncertainty(
 ```
 
 ---
+
+## 📥 Sample GNSS Input
+![Input](assets/input_preview.png)
+
+## ⚙️ Feature Engineering
+![Features](assets/feature_engineering_output.png)
+
+## 🏷️ Signal Class Distribution
+![Labels](assets/label_distribution.png)
+
+## 📊 Model Evaluation
+![Confusion Matrix](assets/confusion_matrix_model.png)
+
+## 🔍 Feature Importance
+![Importance](assets/feature_importance.png)
+
+---
